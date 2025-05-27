@@ -2,167 +2,231 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Davi Cirineu - Portfólio</title>
 
-  <!-- Font Awesome para ícones sociais -->
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
+    /* Reset e base */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
-      padding: 2rem;
+      background: linear-gradient(135deg, #1f2937, #3b82f6);
+      color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      gap: 2rem;
+    }
+    a {
+      color: #93c5fd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #bfdbfe;
     }
 
     header {
-      background-color: #1f1f1f;
-      color: #fff;
+      background: #111827;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 15px;
+      padding: 2.5rem 1.5rem;
       text-align: center;
-      padding: 2rem 1rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     .profile-img {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       object-fit: cover;
       border-radius: 50%;
-      border: 4px solid #fff;
+      border: 5px solid #3b82f6;
+      box-shadow: 0 0 15px #3b82f6aa;
       margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .profile-img:hover {
+      transform: scale(1.05);
     }
 
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
+      color: #e0e7ff;
+      letter-spacing: 1.2px;
+    }
+    header p {
+      font-size: 1.3rem;
+      color: #9ca3af;
+      letter-spacing: 0.05em;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #ccc;
+    main {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
     section {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
+      background: #111827cc;
+      border-radius: 15px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.3s ease;
+    }
+    section:hover {
+      background: #1e293bcc;
     }
 
     h2 {
+      font-size: 1.7rem;
+      color: #3b82f6;
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 0.3rem;
       margin-bottom: 1rem;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.5rem;
-      color: #1f1f1f;
+      user-select: none;
     }
 
     ul {
-      list-style-type: none;
-      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
     }
 
     ul li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
+      background: #374151aa;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      box-shadow: inset 0 0 5px #00000050;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+    ul li strong {
+      color: #bfdbfe;
+    }
+    ul li:hover {
+      background: #2563ebaa;
+      color: #fff;
     }
 
     .badges, .cert-images {
       display: flex;
-      gap: 1rem;
       flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
       margin-top: 1rem;
     }
-
     .badges img, .cert-images img {
-      height: 60px;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      height: 70px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #3b82f6cc;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .badges img:hover, .cert-images img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #60a5fa;
     }
 
     .social-icons {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
+      justify-content: center;
       margin-top: 1rem;
     }
-
     .social-icons a {
-      color: #0077cc;
-      font-size: 1.5rem;
-      text-decoration: none;
+      color: #3b82f6;
+      font-size: 2rem;
+      transition: color 0.3s ease;
     }
-
     .social-icons a:hover {
-      color: #005fa3;
+      color: #93c5fd;
     }
 
     footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
       margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      user-select: none;
+    }
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      ul li {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Substitua o src abaixo pela URL da sua imagem de perfil -->
-    <img src=".\images\FotoProfissional.png" alt="Foto de Davi Cirineu" class="profile-img" />
+    <img src="./images/FotoProfissional.png" alt="Foto de Davi Cirineu" class="profile-img" />
     <h1>Davi Cirineu</h1>
     <p>Estudante de Redes | Cloud | Infraestrutura | Linux | Windows Server</p>
   </header>
 
-  <section>
-    <h2>🚀 Projetos</h2>
-    <ul>
-      <li><strong>Scalify Tech</strong> – Infraestrutura completa na AWS com escalabilidade e alta disponibilidade.</li>
-      <li><strong>ZabWatch</strong> – Monitoramento em tempo real com Zabbix aplicado a múltiplas plataformas.</li>
-      <li><strong>CommerCloud</strong> – Ambiente Azure para e-commerce com Auto Scaling e File Share.</li>
-      <li><strong>Firewall PFsense</strong> – Configuração de segurança e regras de NAT corporativas.</li>
-    </ul>
-  </section>
+  <main>
+    <section>
+      <h2>🚀 Projetos</h2>
+      <ul>
+        <li><strong>Scalify Tech</strong> – Infraestrutura completa na AWS com escalabilidade e alta disponibilidade.</li>
+        <li><strong>ZabWatch</strong> – Monitoramento em tempo real com Zabbix aplicado a múltiplas plataformas.</li>
+        <li><strong>CommerCloud</strong> – Ambiente Azure para e-commerce com Auto Scaling e File Share.</li>
+        <li><strong>Firewall PFsense</strong> – Configuração de segurança e regras de NAT corporativas.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>🎓 Certificações</h2>
-    <ul>
-      <li><strong>Cloud Foundations</strong> – Fundamentos de computação em nuvem.</li>
-      <li><strong>CCNA Introduction to Networks</strong> – Conceitos fundamentais de redes e roteamento.</li>
-    </ul>
-    <div class="badges">
-      <!-- Substitua as URLs abaixo pelas imagens reais das badges -->
-      <img src=".\images\CloudFoundations.png" alt="Cloud Foundations Badge" />
-      <img src=".\images\CCNAITN.png" alt="CCNA Badge" />
-    </div>
-    <div class="cert-images">
-      <!-- Substitua com imagens maiores das certificações, se desejar -->
-      <!-- <img src="URL-para-certificado1.jpg" alt="Certificado Cloud" />
-      <img src="URL-para-certificado2.jpg" alt="Certificado CCNA" /> -->
-    </div>
-  </section>
+    <section>
+        <h2>🎓 Certificações</h2>
+        <ul>
+          <li><strong>Cloud Foundations</strong> – Fundamentos de computação em nuvem.</li>
+          <li><strong>CCNA Introduction to Networks</strong> – Conceitos fundamentais de redes e roteamento.</li>
+          <li><strong>CCNA: Fundamentos de comutação, roteamento e redes sem fio</strong> – Conhecimento em switching, routing e wireless.</li>
+        </ul>
+        <div class="badges">
+          <img src="./images/CloudFoundations.png" alt="Cloud Foundations Badge" />
+          <img src="./images/CCNAITN.png" alt="CCNA Introduction to Networks Badge" />
+          <img src="./images/CCNASwitchRoutingWireless.png" alt="CCNA Switching, Routing and Wireless Badge" />
+        </div>
+      </section>
+      
 
-  <section>
-    <h2>📫 Contato</h2>
-    <p>Email: <a href="mailto:davicirineu86@gmail.com">davicirineu86@gmail.com</a></p>
-    <div class="social-icons">
-      <a href="https://github.com/DaviCirineu3006" target="_blank" title="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/davi-cirineu/" target="_blank" title="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
-  </section>
-  
+    <section>
+      <h2>📫 Contato</h2>
+      <p>Email: <a href="mailto:davicirineu86@gmail.com">davicirineu86@gmail.com</a></p>
+      <div class="social-icons">
+        <a href="https://github.com/DaviCirineu3006" target="_blank" rel="noopener noreferrer" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/davi-cirineu/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </section>
+  </main>
 
   <footer>
     © 2025 Davi Cirineu. Todos os direitos reservados.
